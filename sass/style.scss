@@ -1,0 +1,96 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "print";
+
+$maxWidth:				960px;
+$sans: 					"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+$serif:					'PT Serif', serif;
+
+$black:					#222;
+$white:					#f6f6f6;
+$orange:				#f1b211;
+
+* {
+@include box-sizing(border-box);
+}
+
+.cf:before, .cf:after {
+	display: table;
+	content: " ";
+}
+.cf:after {
+	clear: both;
+}
+
+body {
+	background: $white;	
+	color: $black;
+	font-weight: 300;
+	font-size: 1.25em;
+	font-family: $sans;
+}
+
+#wrapper {
+	margin: 1.5em auto;
+	max-width: $maxWidth;
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $serif;
+}
+
+p, ul {
+	margin-bottom: 1.5em;
+	line-height: 125%;
+}
+
+ul {
+	margin-bottom: 1.5em;
+	line-height: 115%;
+	padding-left: 1.5em;
+	li {
+		list-style: disc;
+		
+	}
+}
+
+a, a:visited {
+	color: $orange;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: darken( $orange, 30% );
+	text-decoration: none;
+}
+
+
+header {
+	h1 {
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+}
+
+dl {
+	dt {
+		float: left; 
+		padding-right: 3%;
+		width: 20%; 
+		text-align: right;
+		h2 {
+		
+		}
+	}
+	dd {
+		float: right;
+		width: 80%;
+		h3 {
+		
+		}
+		p {
+		
+		}
+	}
+}
