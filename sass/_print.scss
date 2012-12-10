@@ -1,0 +1,59 @@
+/* Toolkit */
+* {
+	background: none !important; 
+	color: black !important; 
+	text-shadow: none !important; 
+	@include filter(none !important);
+} 
+
+img { 
+	page-break-inside: avoid; 
+	max-width: 100% !important; 
+}
+
+@page { 
+	margin: 1in; 
+} 
+
+/* Typography */
+a, a:visited { 
+	text-decoration: none; 
+}
+
+h2, h3 { 
+	page-break-after: avoid; 
+}
+	
+h2, h3, p { 
+	orphans: 3; 
+	widows: 3; 
+} 
+
+p, ul {
+	margin-bottom: .5em;
+	line-height: 110%;
+}
+
+blockquote {
+	margin-top: 0
+}
+
+/* Layout */
+body {
+	font-size: .75em;
+}
+
+#wrapper {
+	margin: 0; 
+	padding: 0;
+}
+
+aside {
+	display: none;
+}
+
+dl {
+	dd {
+		margin-bottom: .5em;
+	}
+}

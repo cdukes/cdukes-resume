@@ -1,96 +1,171 @@
-@import "compass/reset";
+@import "normalize";
 @import "compass/css3";
-@import "print";
 
-$maxWidth:				960px;
-$sans: 					"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-$serif:					'PT Serif', serif;
+$maxWidth:				48em;
+$sans: 					"PT Sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+$serif:					"Arvo", serif;
 
 $black:					#222;
-$white:					#f6f6f6;
+$white:					#f7f7f7;
 $orange:				#f1b211;
 
-* {
-@include box-sizing(border-box);
+@mixin breakpoint() {
+    @media only screen and (max-width: 40em) { @content; }
 }
 
-.cf:before, .cf:after {
-	display: table;
-	content: " ";
-}
-.cf:after {
-	clear: both;
+/* Toolkit */
+*, :before, :after {
+	@include box-sizing(border-box);
+	@include transition(all .2s ease-in);
 }
 
-body {
-	background: $white;	
+::moz-selection {
+	background: $orange;
 	color: $black;
-	font-weight: 300;
-	font-size: 1.25em;
-	font-family: $sans;
+	text-shadow: none;
 }
 
-#wrapper {
-	margin: 1.5em auto;
-	max-width: $maxWidth;
-	width: 100%;
+::selection {
+	background: $orange;
+	color: $black;
+	text-shadow: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: $serif;
-}
-
-p, ul {
-	margin-bottom: 1.5em;
-	line-height: 125%;
-}
-
-ul {
-	margin-bottom: 1.5em;
-	line-height: 115%;
-	padding-left: 1.5em;
-	li {
-		list-style: disc;
-		
-	}
-}
-
+/* Typography */
 a, a:visited {
 	color: $orange;
 	text-decoration: none;
 }
 
-a:hover, a:focus {
-	color: darken( $orange, 30% );
-	text-decoration: none;
+a:focus, a:hover, a:focus {
+	color: darken( $orange, 20% );
 }
 
+h1, h2, h3 {
+	font-weight: normal;
+	font-family: $serif;
+	line-height: 110%;
+}
+
+h1 {
+	margin: 0 0 .25em;
+}
+
+h2 {
+	margin: 0;
+	font-size: 1.25em;
+}
+
+h3 {
+	margin: 0;
+	font-size: 1.1em;
+	@include breakpoint() {
+		margin-bottom: 0;
+	}		
+}
+
+p, ul {
+	margin-top: .25em;
+	line-height: 125%;	
+}
+
+blockquote {
+	margin: -.5em 0 0 2.5em;
+}
+
+/* Layout */
+body {
+	background: $white;	
+	color: $black;
+	font-family: $sans;
+}
+
+#wrapper {
+	margin: 0 auto;
+	padding: 1em;
+	max-width: $maxWidth;
+	width: 100%;
+}
+
+aside {
+	display: block;
+	margin-bottom: 1em;
+	padding: .5em 1em;
+	border: 1px solid #C09853;
+	background: #FCF8E3;
+	text-align: center;
+}
 
 header {
-	h1 {
-		font-weight: bold;
-		font-size: 1.5em;
-	}
+	float: left;
+	width: 48%;
+	text-align: left;	
+	p {
+		margin-bottom: 0;
+	}	
+}
+
+.lead {
+	float: right;
+	width: 48%;
+	text-align: right;
+	font-style: italic;
+	font-size: 1.1em; 
 }
 
 dl {
+	margin-top: 1.5em;
+	clear: both;
 	dt {
-		float: left; 
-		padding-right: 3%;
-		width: 20%; 
+		float: left;
+		clear: both;
+		margin: 0 2% .5em 0;
+		padding: 0 1% 3em 0;
+		width: 15%;
+		border-right: 1px solid lighten($black, 20%); 
 		text-align: right;
-		h2 {
-		
-		}
+		font-size: 1.25em;
+		line-height: 110%;
+		@include breakpoint() {
+			float: none;
+			clear: none;
+			margin: 1em 0 .5em;
+			padding: 0 0 .25em;
+			width: 100%;
+			border-right: none;
+			border-bottom: 1px solid lighten($black, 20%);
+			text-align: center;
+			font-size: 1.5em;
+		}			
 	}
 	dd {
 		float: right;
-		width: 80%;
-		h3 {
-		
-		}
-		p {
-		
-		}
+		margin: 0 0 1em;
+		width: 83%;
+		@include breakpoint() {
+			float: none;
+			width: 100%;
+		}			
 	}
+}
+
+hgroup {
+	display: inline-block;
+	@include breakpoint() {
+		display: block;
+	}	
+}
+
+.meta {
+	float: right;
+	color: lighten($black, 20%);
+	font-style: italic;
+	line-height: 140%;
+	@include breakpoint() {
+		float: none;
+	}		
+}
+
+@media print { 
+	@import "print";
 }
