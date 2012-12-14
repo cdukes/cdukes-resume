@@ -7,7 +7,7 @@ $serif:					"Arvo", serif;
 
 $black:					#222;
 $white:					#f7f7f7;
-$orange:				#f1b211;
+$orange:				#e18728;
 
 @mixin breakpoint() {
     @media only screen and (max-width: 40em) { @content; }
